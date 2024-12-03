@@ -1,0 +1,210 @@
+import { useState } from 'react';
+import './App.css'
+import TaskCard from './components/TaskCard';
+
+// Function Component
+function App() {
+  const [taskTitle, setTaskTitle] = useState('');
+  const [data, setData] = useState([
+    {
+      title: "Task 1",
+      tasks: [
+        {title: "Get up at 5AM", isCompleted: false},
+        {title: "Do workouts", isCompleted: false},
+        {title: "Eat healthy breakfast", isCompleted: false},
+      ]
+    },
+    {
+      title: "Task 2",
+      tasks: [
+        {title: "Got to college", isCompleted: false},
+        {title: "Attend lectures", isCompleted: true},
+        {title: "Collect book from library", isCompleted: false},
+      ]
+    }
+  ]);
+
+  // useEffect(() => {
+  //   document.addEventListener('click', () => {
+  //     console.log('Clicked')
+  //   })
+  // }, []);
+
+  function handleInputCHange(e) {
+    setTaskTitle(e.target.value)
+  }
+
+  function handleTaskCreate(e) {
+    e.preventDefault();
+    if (!taskTitle) return;
+    const dataCopy = [...data];
+    dataCopy.push({
+      title: taskTitle,
+      tasks: []
+    })
+    setData(dataCopy)
+  }
+
+  function handleCompletion(category, task) {
+    const dataCopy = [...data];
+    const selectedCategory = dataCopy.find((element) => element.title === category);
+    if (selectedCategory) {
+      let selectedSubTask = selectedCategory.tasks.find((element) => element.title === task);
+      selectedSubTask.isCompleted = !selectedSubTask.isCompleted;
+      console.log(selectedSubTask)
+    }
+    setData(dataCopy);
+  }
+
+  function handleAddNewTask(category) {
+    const dataCopy = [...data];
+    const selectedCategory = dataCopy.find((element) => element.title === category);
+    selectedCategory.tasks.push({ title: "Dummy task", isCompleted: false })
+    setData(dataCopy);
+  }
+
+  return (<div>
+    <div className='create-task-form'>
+    <input placeholder="Enter task here" onChange={handleInputCHange} />
+    <button onClick={handleTaskCreate}>Save task</button>
+    </div>
+    <div className='tasks-listing-container'>
+      {data.map((element, index) => {
+        return <TaskCard key={`${element.title}-${index}`} data={element} handleAddNewTask={handleAddNewTask} handleCompletion={handleCompletion} />
+      })}
+    </div>
+    </div>
+  )
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+/// Component folder
+///add taskcard.jsx folder
+
+
+
+
+
+
+
+import PropTypes from 'prop-types';
+
+export default function TaskCard(props = {}) {
+  return (
+    <div className='task-card'>
+      <div className='task-card-header'>
+      <h3>{props.data.title}</h3>
+      <button onClick={() => props.handleAddNewTask(props.data.title)}>Add</button>
+      </div>
+      <ul>
+          {
+            props.data.tasks.map((item, index) => <li onClick={() => props.handleCompletion(props.data.title, item.title)} className="list-item" key={index}>{item.isCompleted && <span>️✅</span>}<span style={{ textDecoration: item.isCompleted ? 'line-through' : 'none' }}>{item.title}</span></li>)
+          }
+      </ul>
+      </div>
+  )
+}
+
+TaskCard.propTypes = {
+    data: PropTypes.object,
+    handleCompletion: PropTypes.func,
+    handleAddNewTask: PropTypes.func,
+};
+
+
+
+
+
+
+
+//////
+/////
+/////
+css file isCompleted
+
+
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background-color: lightgreen;
+  border-radius: 50%;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: lightgreen;
+}
+
+.error-banner {
+  width: 500px;
+  height: 30px;
+  border-radius: 5px;
+  background: lightpink;
+  text-align: center;
+  padding: 10px;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-item {
+  width: auto;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.list-item:hover {
+  background: #e2e2e2;
+}
+
+input {
+  height: 30px;
+  border-radius: 5px;
+  padding-inline-start: 10px;
+}
+
+.create-task-form {
+  margin-bottom: 20px;
+}
+
+.tasks-listing-container {
+  display: flex;
+  gap: 10px;
+}
+
+.task-card {
+  margin-bottom: 20px;
+  > .task-card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+}

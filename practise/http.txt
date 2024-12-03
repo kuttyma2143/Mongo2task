@@ -25,3 +25,20 @@ HTTP/2 is able to use a single TCP connection to send multiple streams of data a
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> html learning</title>
+        <meta charset="UTF-8"/>
+       
+    </head>
+    <body>
+
+
+
+
+
+
+
+    </body>
+</html>

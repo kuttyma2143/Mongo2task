@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Createtask from "./components/Createtask.jsx";
 import Card from "./components/Card.jsx";
-import "bootstrap/dist/css/bootstrap.min.css";
+
+
 
 function App() {
   const [tasklist, setTasklist] = useState([]);
@@ -19,7 +20,9 @@ function App() {
     }
   }, []);
 
-  // function To Delete Tasks //
+  // Function To Delete Tasks //
+
+
   const deleteTask = (index) => {
     let templist = structuredClone(tasklist);
     templist.splice(index, 1);
@@ -47,8 +50,10 @@ function App() {
 
   return (
     <>
-      <div className="container border  py-5 ">
-        <h1 className="   text-center ">My-Todo</h1>
+    
+    
+      <div className="container py-5 " >
+        <h1 className="   text-center bold " >My-Todo</h1>
         <div className="row">
           <div className="col   mt-5">
             {/* Calling Create Task Component */}
@@ -70,7 +75,7 @@ function App() {
            
 
             <div className="px-5 col  text-end">
-              <label>Status Filter:</label>
+              <label><b>Status Filter:</b></label>
               <select
                 onChange={(e) => {
                   console.log(e.target.value);
@@ -109,12 +114,16 @@ function App() {
               <Card
                 edit={edit}
                 setEdit={setEdit}
+
                 taskName={taskName}
                 setTaskName={setTaskName}
+
                 description={description}
                 setDescription={setDescription}
+
                 save={saveTask}
                 taskobj={obj}
+
                 deleteTask={deleteTask}
                 index={index}
                 key={index}
@@ -124,6 +133,7 @@ function App() {
             ))}
         </div>
       </div>
+      
     </>
   );
 }

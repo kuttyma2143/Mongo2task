@@ -45,14 +45,19 @@ export default function ProductCard({
 
         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
           <div className="text-center">
-            <button id={data.id}
+           
+          <button id={data.id}
               className="btn btn-outline-dark mt-auto"
-              onClick={(id) => isRemoveFromCart ? handleRemoveFromCart(data) : handleAddToCart(data)}>
+              onClick={() => isRemoveFromCart ? handleRemoveFromCart(data) : handleAddToCart(data)}>
               {isRemoveFromCart ?  "Remove From Cart" : "Add To Cart"}
               
              
               
             </button>
+              
+             
+              
+           
             
           </div>
         </div>

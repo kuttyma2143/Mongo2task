@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 export default function ProductsContainer({
   products = [],
-  handle = () => {},
   handleAddToCart = () => {},
   handleRemoveFromCart = () => {},
   
@@ -20,10 +19,11 @@ export default function ProductsContainer({
             <ProductCard
               key={`${data.name}-${index}`}
               data={data}
-              handle={handle}
+              
               handleAddToCart={handleAddToCart}
-              handleRemoveFromCart={handleRemoveFromCart}
               isAddedToCart={findCartStatus(data)}
+
+              handleRemoveFromCart={handleRemoveFromCart}
               isRemoveFromCart={findCartStatus(data)}
             />
           ))}
@@ -38,4 +38,5 @@ ProductsContainer.propTypes = {
   handleAddToCart: PropTypes.func,
   handleRemoveFromCart: PropTypes.func,
   cart: PropTypes.array,
+  
 };

@@ -4,6 +4,7 @@ import NavBar from "./components/header.jsx";
 import Footer from "./components/footer.jsx";
 import ProductsContainer from "./components/productcontainer.jsx";
 import Billboard from "./components/billboard.jsx";
+import ProductCard from "./components/product card.jsx";
 
  function App() {
   const [products, setProducts] = useState([]);
@@ -32,7 +33,7 @@ import Billboard from "./components/billboard.jsx";
   }
   function handleRemoveFromCart(data = {}) {
     let cartCopy = [...cart];
-    cartCopy.pop(data);
+    cartCopy = cartCopy.filter((cartItem) => cartItem.id !== data.id);
     setCart(cartCopy);
 
   }
@@ -42,6 +43,7 @@ import Billboard from "./components/billboard.jsx";
       
       <NavBar quantity={cart.length} />
       <Billboard />
+      
       <ProductsContainer
         products={products}
        
@@ -49,6 +51,8 @@ import Billboard from "./components/billboard.jsx";
         handleRemoveFromCart={handleRemoveFromCart}
         cart={cart}
       />
+      <ProductCard/>
+      
       <Footer/>
     
     </div>

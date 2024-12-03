@@ -1,0 +1,87 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align:;
+  
+}
+
+
+
+.App{
+  background-color: aliceblue;
+}
+  
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #cbc9d9;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background-color: lightgreen;
+  border-radius: 50%;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: lightgreen;
+}
+
+.error-banner {
+  width: 500px;
+  height: 30px;
+  border-radius: 5px;
+  background: rgb(210, 28, 55);
+  text-align: center;
+  padding: 10px;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-item {
+  width: auto;
+  border: 1px solid rgb(18, 18, 138);
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.list-item:hover {
+  background: #d0c7c7;
+}
+
+input {
+  height: 30px;
+  border-radius: 5px;
+  padding-inline-start: 10px;
+}
+
+.create-task-form {
+  margin-bottom: 20px;
+}
+
+.tasks-listing-container {
+  display: flex;
+  gap: 10px;
+}
+
+.task-card {
+  margin-bottom: 20px;
+  > .task-card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+}

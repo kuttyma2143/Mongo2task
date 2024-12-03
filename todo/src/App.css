@@ -1,6 +1,7 @@
 
+
 #button{
-  width: 90px;
+  width: 120px;
 
 }
 
@@ -9,9 +10,13 @@
      flex-wrap: wrap;  
      width: 100%;
      height: auto;
+     
 }
+
 
 #boderbox{
     box-sizing: border-box;
     width: 100%;
 }
+
+    
