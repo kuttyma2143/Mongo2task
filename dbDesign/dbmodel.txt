@@ -1,0 +1,78 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table Attendance {
+  Attendance_ID integer
+  Student_ID integer
+  Topic_ID integer
+  Attended integer
+}
+Ref:  Attendance.Topic_ID > session_topics.Topic_ID
+
+Table Mentors {
+  Mentor_ID integer
+  Mentor_Name varchar
+  Mentor_Email varchar
+}
+Ref: Mentors.Mentor_ID > session_topics.Mentor_ID
+
+Table Users{
+  UserID integer
+  Username varchar
+  Password varchar
+  Email varchar
+  Full_Name varchar
+  Batch integer
+}
+Ref: Users.UserID > Attendance.Student_ID
+Ref: Users.UserID > Mentors.Mentor_ID
+Ref: Users.UserID > Company_drives.User_ID
+Ref: Users.UserID > CodeKata.User_ID
+Ref: Users.Batch > Batch.Batch_ID
+
+
+
+Table Company_drives {
+  Drive_ID integer
+  User_ID integer
+  Drive_Data datetime
+  Company varchar
+}
+
+
+Table Task {
+  Task_ID integer 
+  Topic_ID integer
+  Task varchar
+  Batch_ID integer
+}
+Ref: Task.Batch_ID > Batch.Batch_ID
+Ref: Task.Topic_ID > session_topics.Topic_ID
+
+Table CodeKata{
+  Code_ID integer
+  User_ID integer
+  Num_of_Problems integer
+  Problem_Status varchar
+}
+
+
+
+Table Batch {
+  Batch_ID integer 
+  Batch_Name varchar
+ 
+}
+
+table session_topics
+{
+  Topic_ID integer
+  SessionLink varchar
+  SessionTopic varchar
+  Mentor_ID integer
+}
+
+
+
+
+
