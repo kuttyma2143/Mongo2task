@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
+  <style src></style>
+<title>Event-Booking</title>
+<style>
+body
+{
+margin:10px;
+border:2px solid;
+background-color: rgb(173, 89, 159);
+}
+table
+{
+margin:30px;
+border:2px solid;
+}
+img
+{
+margin:4px;
+width:100%;
+border-radius:50%;
+}
+form label
+{
+margin-top:10px;
+}
+.image
+{
+border:1px solid;
+}
+.container
+{
+margin-top:50px;
+}
+.submit
+{
+margin-top:20px;
+}
+.cancel
+{
+margin-left:40px;
+}
+</style>
+</head>
+
+<body>
+<center><h1><b>RAHMAN EVENT</b><br>Number Of Seats Avaliable : 23</h1></center>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <p class='image' style="background-color: black;">
+      <img class='img-responsive' src ='./images/rahman.jpeg'></p>
+    </div>
+    <div class="col-sm-6">
+
+       <form>
+        <div class ="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="fname">First Name :</label>
+                   
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" id="fname" name="fname" value=""><br>  
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="lname">Last Name      :</label>
+                   
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" id="lname" name="lname" value=""><br> 
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="number">Phone Number  :</label>
+                   
+                </div>
+                <div class="col-sm-10">
+                    <input type="number" id="number" name="number" value=""><br>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="seats">Number Of Seats:</label>
+                   
+                </div>
+                <div class="col-sm-10">
+                    <select name="seats" id="seats">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                        
+                      </select>
+                      <br> 
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="attendee">Number Of Attendee:</label>
+                   
+                </div>
+                <div class="col-sm-10">
+                    <input type='number'id='attendee' name='attendee'><br> 
+                </div>
+            </div>
+
+
+
+            
+
+            
+            
+            
+            <div class="row">
+                <div class="col-sm-8">
+                    <input type="submit" class='submit' onclick='submit()' value="Submit">
+                    <input type='submit' class='cancel' value='Cancel'>
+                   
+                </div>
+                
+            </div>
+
+           
+
+        
+ 
+  
+  
+  
+  
+ 
+  
+  
+  
+  
+</div>
+ </form>
+ 
+ </div>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+function submit() {
+  alert("TICKET CONFORMED");
+}
+</script>
+</html>
